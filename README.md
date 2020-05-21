@@ -8,9 +8,9 @@
 
 Clone the repository using **Git**:
 ```bash
-git clone https://github.com/dj0nny/hacker-news-vue.git
+git clone https://github.com/dj0nny/deno-mongodb-rest-api.git
 ```
-Or download [here](https://github.com/dj0nny/hacker-news-vue/archive/develop.zip).
+Or download [here](https://github.com/dj0nny/deno-mongodb-rest-api/archive/develop.zip).
 
 ### Install
 
@@ -26,14 +26,13 @@ There is no installation this time. 😱
 * Github: [@dj0nny](https://github.com/dj0nny)
 
 ## Built with :heart: using
-* [Vue.js](https://vuejs.org/) - _The Progressive
-JavaScript Framework_
+* [Deno](https://deno.land/) - _A secure runtime for JavaScript and TypeScript_
 
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check [issues page](https://github.com/dj0nny/hacker-news-vue/issues).
+Feel free to check [issues page](https://github.com/dj0nny/deno-mongodb-rest-api/issues).
 
 ## Show your support
 
