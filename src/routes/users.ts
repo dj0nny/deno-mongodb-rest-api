@@ -39,4 +39,14 @@ const addUser = async ({ request, response }: { request: any ,response: any }) =
   }
 }
 
-export { getUsers, addUser };
+const deleteUser = async({ params, response }: { params: any, response: any }) => {
+  const userId = params.id;
+  // await users.deleteOne({ _id: userId });
+  response.status = 200;
+  response.body = {
+    success: true,
+    message: 'User deleted'
+  }
+}
+
+export { getUsers, addUser, deleteUser };
