@@ -39,6 +39,17 @@ const addUser = async ({ request, response }: { request: any ,response: any }) =
   }
 }
 
+const updateUser = async({ params, request, response }: { params: any, request: any ,response: any }) => {
+  const userId = params.id;
+  const body = await request.body();
+  await users.updateOne({ _id: userId }, { $set: { username: body.value.username, passoword: body.value.passoword } });
+  response.status = 201;
+  response.body = {
+    success: true,
+    message: 'User updated'
+  }
+}
+
 const deleteUser = async({ params, response }: { params: any, response: any }) => {
   const userId = params.id;
   // await users.deleteOne({ _id: userId });
@@ -49,4 +60,4 @@ const deleteUser = async({ params, response }: { params: any, response: any }) =
   }
 }
 
-export { getUsers, addUser, deleteUser };
+export { getUsers, addUser, deleteUser, updateUser };
