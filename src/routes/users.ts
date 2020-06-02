@@ -20,6 +20,23 @@ const getUsers = async ({ response }: { response: any }) => {
   }
 }
 
+const getUser = async ({ params, response }: { params: any, response: any }) => {
+  const userId = params.id;
+  const user = await users.findOne({ _id: { "$oid": userId } });
+  if (user) {
+    response.status = 200;
+    response.body = {
+      success: true,
+      data: user
+    }
+  } else {
+    response.status = 400;
+    response.body = {
+      success: false,
+    }
+  }
+}
+
 const addUser = async ({ request, response }: { request: any ,response: any }) => {
   const body = await request.body();
   if (!request.hasBody) {
@@ -64,4 +81,4 @@ const deleteUser = async({ params, response }: { params: any, response: any }) =
   }
 }
 
-export { getUsers, addUser, updateUser, deleteUser };
+export { getUsers, getUser, addUser, updateUser, deleteUser };
