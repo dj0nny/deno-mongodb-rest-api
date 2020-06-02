@@ -40,9 +40,9 @@ Compared to Node.js, Deno provides by default a more secure protection when you 
 * [x] add Users route (`/users`)
   * [x] GET users
   * [x] POST user
-  * [ ] GET one user
-  * [ ] PUT user
-  * [ ] DELETE user
+  * [x] GET one user
+  * [x] PUT user
+  * [x] DELETE user
 
 ## Author
 
