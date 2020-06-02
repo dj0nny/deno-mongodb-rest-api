@@ -42,22 +42,26 @@ const addUser = async ({ request, response }: { request: any ,response: any }) =
 const updateUser = async({ params, request, response }: { params: any, request: any ,response: any }) => {
   const userId = params.id;
   const body = await request.body();
-  await users.updateOne({ _id: userId }, { $set: { username: body.value.username, passoword: body.value.passoword } });
-  response.status = 201;
-  response.body = {
-    success: true,
-    message: 'User updated'
+  const { matchedCount } = await users.updateOne({ _id: { "$oid": userId } },{ $set: { username: body.value.username, name: body.value.name, email: body.value.email, password: body.value.password } })
+  if (matchedCount) {
+    response.status = 201;
+    response.body = {
+      success: true,
+      message: 'User updated'
+    }
   }
 }
 
 const deleteUser = async({ params, response }: { params: any, response: any }) => {
   const userId = params.id;
-  // await users.deleteOne({ _id: userId });
-  response.status = 200;
-  response.body = {
-    success: true,
-    message: 'User deleted'
+  const deleteCount = await users.deleteOne({ _id: { "$oid": userId } });
+  if (deleteCount) {
+    response.status = 204;
+    response.body = {
+      success: true,
+      message: 'User deleted'
+    }
   }
 }
 
-export { getUsers, addUser, deleteUser, updateUser };
+export { getUsers, addUser, updateUser, deleteUser };
